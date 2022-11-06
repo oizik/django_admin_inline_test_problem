@@ -53,23 +53,6 @@ class LoginAdmin(ReadOnlyModelMixin, admin.ModelAdmin):
 
 class LoginInline(ReadOnlyModelMixin, admin.TabularInline):
     model = Login
-    extra = 0
-
-    fields = (
-        'date',
-        'domain',
-        'ip',
-        'remote_host',
-        'http_host',
-        'server_name',
-        'user_agent',
-    )
-
-    readonly_fields = fields
-    can_delete = False
-    show_change_link = False
-    ordering = ('-date',)
-
 
 class UserAdmin(auth_admin.UserAdmin):
     inlines = [LoginInline]

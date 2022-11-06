@@ -14,10 +14,10 @@ class User(AbstractUser):
     )
 
 
-class Login(auto_prefetch.Model):
+class Login(models.Model):
     """Represents a record of a user login event."""
 
-    user = auto_prefetch.ForeignKey(
+    user = models.ForeignKey(
         get_user_model(), on_delete=models.CASCADE, related_name="logins"
     )
 
